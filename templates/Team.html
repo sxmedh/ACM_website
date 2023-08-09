@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <title>Team</title>
+
+  <meta charset="utf-8" />
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="description" content="" />
+
+  <!-- Css -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="{% static 'css/user_style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script src="{% static 'js/darkMode.bundle.js' %}"></script>
+
+  <!-- Dark Mode JS -->
+  <!-- <script src="./js/darkMode.bundle.js"></script> -->
+  <style>
+    @media (max-width: 775px) {
+      #team-grid {
+        margin-left: 33px;
+      }
+    }
+
+    @media (min-width: 775px) {
+      #team-grid {
+        margin-left: 50px;
+      }
+    }
+
+
+
+    .glowing-button {
+      border: 3px;
+      padding-left: 30px;
+      padding-right: 30px;
+      /* change this to change the border color and thickness */
+      font-weight: 600;
+      text-decoration: none;
+      /* letter-spacing: 2px; */
+      /* change this to change the spacing between the letters*/
+      color: black;
+      /* change this to change font-color */
+      font-size: 20px;
+      /*change this to change font size */
+    }
+
+    .glowing-button:hover {
+      animation: glow 1500ms infinite;
+      /* change this to change the color of text after hover over the button */
+    }
+
+    @keyframes glow {
+      0% {
+        background-color: #4d80ec;
+        box-shadow: 0 0 3px #2563eb;
+      }
+
+      50% {
+        background-color: #4d80ec;
+        box-shadow: 0 0 40px #2563eb;
+      }
+
+      100% {
+        background-color: #4d80ec;
+        box-shadow: 0 0 3px #2563eb;
+      }
+    }
+  </style>
+  <!-- Favicons -->
+  <link rel="shortcut icon" sizes="114x114" href="{% static  'images/favicon.ico' %}" />
+  <link rel="apple-touch-icon" href="{% static  'images/favicon.ico' %}" />
+  <link rel="apple-touch-icon" sizes="72x72" href="{% static  'images/favicon.ico' %}" />
+  <link rel="apple-touch-icon" sizes="114x114" href="{% static  'images/favicon.ico' %}" />
+</head>
+
+<body class="overflow-x-hidden font-body text-jacarta-500 bg-jacarta-900">
+  <!-- Header -->
+  <header class="js-page-header fixed top-0 z-20 w-full  transition-colors">
+    <div class="flex items-center py-2 xl:px-24">
+      <!-- Logo -->
+      <a href="{% url 'home' %}" class="shrink-0">
+        <!-- <img src="{% static  'images/about_logo.png' %}" class=" hidden" style="width:50px; height: 50px;"
+          alt="IOIT ACM" /> -->
+        <img src="{% static  'images/about_logo.png' %}" class="block" style="width:100px; height: 100px;"
+          alt="IOIT ACM" />
+      </a>
+
+      <!-- Search -->
+      <!-- Menu / Actions -->
+      <div
+        class="js-mobile-menu invisible lg:visible fixed inset-0 z-10 ml-auto items-center bg-white opacity-0 bg-jacarta-800 lg:relative lg:inset-auto lg:flex lg:bg-transparent lg:opacity-100 lg:bg-transparent">
+        <!-- Mobile Logo / Menu Close -->
+        <div class="t-0 left-0 z-10 flex w-full items-center justify-between bg-white p-6 bg-jacarta-800 lg:hidden">
+          <!-- Mobile Logo -->
+          <a href="{% url 'home' %}" class="shrink-0">
+            <img src="{% static  'images/about_logo.png' %}" class="max-h-7 hidden" style="width: 100px; height: 100px;"
+              alt="IOIT ACM" />
+            <img src="{% static  'images/about_logo.png' %}" class="hidden max-h-7 block" alt="IOIT ACM" />
+          </a>
+
+          <!-- Mobile Menu Close -->
+          <button
+            class="js-mobile-close group ml-2 flex h-10 w-10 items-center justify-center rounded-full border border-jacarta-100 bg-white transition-colors hover:border-transparent hover:bg-accent focus:border-transparent focus:bg-accent border-transparent bg-white/[.15] hover:bg-accent"
+            aria-label="close mobile menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+              class="h-4 w-4 fill-jacarta-700 transition-colors group-hover:fill-white group-focus:fill-white fill-white">
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path
+                d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Search -->
+
+        <!-- Primary Nav -->
+        <nav class="navbar w-full ">
+          <ul class="flex flex-col lg:flex-row">
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'home' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">Home
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'aboutus' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">About
+                Us
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'membership' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">Membership
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'event_all' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">Events
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'team' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">Team
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'contactus' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">Contact
+                Us
+              </a>
+            </li>
+
+
+          </ul>
+        </nav>
+
+        <!-- Mobile Connect Wallet / Socials -->
+
+        <!-- Actions -->
+
+      </div>
+
+
+      <!-- Mobile Menu Actions -->
+      <div class="ml-auto flex lg:hidden">
+        <!-- Profile -->
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="js-mobile-toggle group ml-2 flex h-10 w-10 items-center justify-center rounded-full border border-jacarta-100 bg-white transition-colors hover:border-transparent hover:bg-accent focus:border-transparent focus:bg-accent border-transparent bg-white/[.15] hover:bg-accent"
+          aria-label="open mobile menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+            class="h-4 w-4 fill-jacarta-700 transition-colors group-hover:fill-white group-focus:fill-white fill-white">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M18 18v2H6v-2h12zm3-7v2H3v-2h18zm-3-7v2H6V4h12z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main style="align-items: center; align-content: center;">
+    <!-- Collections -->
+    <section class="py-24">
+      <div class="container">
+        <h1 class="py-16 text-center font-display text-24xl font-medium text-jacarta-700 text-white"
+          style="font-size: 100px;">
+          Our Team
+        </h1>
+
+        <!-- Filters -->
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 gap-[1.875rem] md:grid-cols-3 lg:grid-cols-3" id="team-grid">
+          <div style="width: 280px;">
+            <!-- <div
+              class="rounded-2.5xl border  bg-white  transition-shadow hover:shadow-lg border-jacarta-700 bg-jacarta-700">
+              <div class="our-team">
+                <img src="{% static 'images/images/Omkar_Danave.png' %}" alt="">
+                <div class="team-content">
+                  <h3 class="title">Omkar Danave</h3>
+                  <span class="post">Chair</span>
+                  <ul class="social-links">
+                    <a href="{% url 'contactus' %}"
+                      target="_blank" class="inline-block rounded-full bg-accent py-2 px-6 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+                      Socials</a>
+                  </ul>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <div style="width: 280px;">
+            <div
+              class="rounded-2.5xl border  bg-white  transition-shadow hover:shadow-lg border-jacarta-700 bg-jacarta-700">
+              <div class="our-team">
+                <img src="{% static 'images/images/faculty_guide.jpg' %}" alt="">
+                <div class="team-content">
+                  <h3 class="title">Dr. Meenakshi Thalor</h3>
+                  <span class="post">Faculty Sponsor</span>
+                  <ul class="social-links">
+                    <a href="{% url 'contactus' %}" target="_blank"
+                      class="inline-block rounded-full bg-accent py-2 px-6 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+                      Socials</a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="width: 280px;">
+            <!-- <div
+              class="rounded-2.5xl border  bg-white  transition-shadow hover:shadow-lg border-jacarta-700 bg-jacarta-700">
+              <div class="our-team">
+                <img src="{% static 'images/images/Omkar_Danave.png' %}" alt="">
+                <div class="team-content">
+                  <h3 class="title">Omkar Danave</h3>
+                  <span class="post">Chair</span>
+                  <ul class="social-links">
+                    <a href="{% url 'contactus' %}"
+                      target="_blank" class="inline-block rounded-full bg-accent py-2 px-6 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+                      Socials</a>
+                  </ul>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <section style="width: 280px;">
+            <div
+              class="rounded-2.5xl border  bg-white  transition-shadow hover:shadow-lg border-jacarta-700 bg-jacarta-700">
+              <div class="our-team">
+                <img src="{% static 'images/images/Omkar_Danave.png' %}" alt="">
+                <div class="team-content">
+                  <h3 class="title">Omkar Danave</h3>
+                  <span class="post">Chair</span>
+                  <ul class="social-links">
+                    <a href="{% url 'contactus' %}" target="_blank"
+                      class="inline-block rounded-full bg-accent py-2 px-6 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+                      Socials</a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section style="width: 280px;">
+            <div
+              class="rounded-2.5xl border border-jacarta-100 bg-white  transition-shadow hover:shadow-lg border-jacarta-700 bg-jacarta-700">
+              <div class="our-team">
+                <img src="{% static 'images/images/Anshika_Singh.jpg' %}" alt="">
+                <div class="team-content">
+                  <h3 class="title">Anshika Singh</h3>
+                  <span class="post">Vice-Chair</span>
+                  <ul class="social-links">
+                    <a href="https://linktr.ee/AnshikaSingh10" target="_blank"
+                      class="inline-block rounded-full bg-accent py-2 px-6 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+                      Socials</a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section style="width: 280px;">
+            <div
+              class="rounded-2.5xl border border-jacarta-100 bg-white  transition-shadow hover:shadow-lg border-jacarta-700 bg-jacarta-700">
+              <div class="our-team">
+                <img src="{% static 'images/images/Sharvin.jpg' %}" alt="">
+                <div class="team-content">
+                  <h3 class="title">Sharvin Shah</h3>
+                  <span class="post">Secretary</span>
+                  <ul class="social-links">
+                    <a href="https://linktr.ee/_sharvin7" target="_blank"
+                      class="inline-block rounded-full bg-accent py-2 px-6 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+                      Socials</a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section style="width: 280px;">
+            <div
+              class="rounded-2.5xl border border-jacarta-100 bg-white  transition-shadow hover:shadow-lg border-jacarta-700 bg-jacarta-700">
+              <div class="our-team">
+                <img src="{% static 'images/images/Yash.jpg' %}" alt="">
+                <div class="team-content">
+                  <h3 class="title">Yash Yegare</h3>
+                  <span class="post">Treasurer</span>
+                  <ul class="social-links">
+                    <a href="{% url 'contactus' %}" target="_blank"
+                      class="inline-block rounded-full bg-accent py-2 px-6 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+                      Socials</a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section style="width: 280px;">
+            <div
+              class="rounded-2.5xl border border-jacarta-100 bg-white  transition-shadow hover:shadow-lg border-jacarta-700 bg-jacarta-700">
+              <div class="our-team">
+                <img src="{% static 'images/images/AVAL.jpg' %}" alt="">
+                <div class="team-content">
+                  <h3 class="title">Aval Sonigara</h3>
+                  <span class="post">Administrator</span>
+                  <ul class="social-links">
+                    <a href="https://linktr.ee/avalsonigara15" target="_blank"
+                      class="inline-block rounded-full bg-accent py-2 px-6 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+                      Socials</a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section style="width: 280px;">
+            <div
+              class="rounded-2.5xl border border-jacarta-100 bg-white  transition-shadow hover:shadow-lg border-jacarta-700 bg-jacarta-700">
+              <div class="our-team">
+                <img src="{% static 'images/images/Rohit_Lohar.png' %}" alt="">
+                <div class="team-content">
+                  <h3 class="title">Rohit Lohar</h3>
+                  <span class="post">WebMaster</span>
+                  <ul class="social-links">
+                    <a href="https://linktr.ee/loharrohit" target="_blank"
+                      class="inline-block rounded-full bg-accent py-2 px-6 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+                      Socials</a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section style="width: 280px;">
+            <div
+              class="rounded-2.5xl border border-jacarta-100 bg-white  transition-shadow hover:shadow-lg border-jacarta-700 bg-jacarta-700">
+              <div class="our-team">
+                <img src="{% static 'images/images/Anurag.jpeg' %}" alt="">
+                <div class="team-content">
+                  <h3 class="title">Anurag Gargote</h3>
+                  <span class="post">Technical Head</span>
+                  <ul class="social-links">
+                    <a href="https://linktr.ee/Anurag19" target="_blank"
+                      class="inline-block rounded-full bg-accent py-2 px-6 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+                      Socials</a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section style="width: 280px;">
+            <div
+              class="rounded-2.5xl border border-jacarta-100 bg-white  transition-shadow hover:shadow-lg border-jacarta-700 bg-jacarta-700">
+              <div class="our-team">
+                <img src="{% static 'images/images/Akshita_Ghanwat.jpg' %}" alt="">
+                <div class="team-content">
+                  <h3 class="title">Akshita Ghanwat</h3>
+                  <span class="post">Documentation Head</span>
+                  <ul class="social-links">
+                    <a href="https://linktr.ee/akshitasg" target="_blank"
+                      class="inline-block rounded-full bg-accent py-2 px-6 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+                      Socials</a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section style="width: 280px;">
+            <div
+              class="rounded-2.5xl border border-jacarta-100 bg-white  transition-shadow hover:shadow-lg border-jacarta-700 bg-jacarta-700">
+              <div class="our-team">
+                <img src="{% static 'images/images/Lalita_Bari.jpg' %}" alt="">
+                <div class="team-content">
+                  <h3 class="title">Lalita Bari</h3>
+                  <span class="post">Coordinator Head</span>
+                  <ul class="social-links">
+                    <a href="https://linktr.ee/lalitabari" target="_blank"
+                      class="inline-block rounded-full bg-accent py-2 px-6 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+                      Socials</a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section style="width: 280px;">
+            <!-- <div
+              class="rounded-2.5xl border  bg-white  transition-shadow hover:shadow-lg border-jacarta-700 bg-jacarta-700">
+              <div class="our-team">
+                <img src="{% static 'images/images/Omkar_Danave.png' %}" alt="">
+                <div class="team-content">
+                  <h3 class="title">Omkar Danave</h3>
+                  <span class="post">Chair</span>
+                  <ul class="social-links">
+                    <a href="{% url 'contactus' %}"
+                      target="_blank" class="inline-block rounded-full bg-accent py-2 px-6 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+                      Socials</a>
+                  </ul>
+                </div>
+              </div>
+            </div> -->
+          </section>
+
+        </div>
+      </div>
+    </section>
+    <!-- end collections -->
+  </main>
+
+  <!-- Wallet Modal -->
+  <div class="modal fade" id="walletModal" tabindex="-1" aria-labelledby="walletModalLabel" aria-hidden="true">
+    <div class="modal-dialog max-w-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="walletModalLabel">Connect your wallet</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+              class="h-6 w-6 fill-jacarta-700 fill-white">
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path
+                d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body p-6 text-center">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 318.6 318.6" xml:space="preserve"
+            class="mb-4 inline-block h-8 w-8">
+            <style>
+              .st1,
+              .st6 {
+                fill: #e4761b;
+                stroke: #e4761b;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+              }
+
+              .st6 {
+                fill: #f6851b;
+                stroke: #f6851b;
+              }
+            </style>
+            <path fill="#e2761b" stroke="#e2761b" stroke-linecap="round" stroke-linejoin="round"
+              d="M274.1 35.5l-99.5 73.9L193 65.8z" />
+            <path class="st1"
+              d="M44.4 35.5l98.7 74.6-17.5-44.3zm193.9 171.3l-26.5 40.6 56.7 15.6 16.3-55.3zm-204.4.9L50.1 263l56.7-15.6-26.5-40.6z" />
+            <path class="st1"
+              d="M103.6 138.2l-15.8 23.9 56.3 2.5-2-60.5zm111.3 0l-39-34.8-1.3 61.2 56.2-2.5zM106.8 247.4l33.8-16.5-29.2-22.8zm71.1-16.5l33.9 16.5-4.7-39.3z" />
+            <path d="M211.8 247.4l-33.9-16.5 2.7 22.1-.3 9.3zm-105 0l31.5 14.9-.2-9.3 2.5-22.1z" fill="#d7c1b3"
+              stroke="#d7c1b3" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M138.8 193.5l-28.2-8.3 19.9-9.1zm40.9 0l8.3-17.4 20 9.1z" fill="#233447" stroke="#233447"
+              stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M106.8 247.4l4.8-40.6-31.3.9zM207 206.8l4.8 40.6 26.5-39.7zm23.8-44.7l-56.2 2.5 5.2 28.9 8.3-17.4 20 9.1zm-120.2 23.1l20-9.1 8.2 17.4 5.3-28.9-56.3-2.5z"
+              fill="#cd6116" stroke="#cd6116" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M87.8 162.1l23.6 46-.8-22.9zm120.3 23.1l-1 22.9 23.7-46zm-64-20.6l-5.3 28.9 6.6 34.1 1.5-44.9zm30.5 0l-2.7 18 1.2 45 6.7-34.1z"
+              fill="#e4751f" stroke="#e4751f" stroke-linecap="round" stroke-linejoin="round" />
+            <path class="st6"
+              d="M179.8 193.5l-6.7 34.1 4.8 3.3 29.2-22.8 1-22.9zm-69.2-8.3l.8 22.9 29.2 22.8 4.8-3.3-6.6-34.1z" />
+            <path fill="#c0ad9e" stroke="#c0ad9e" stroke-linecap="round" stroke-linejoin="round"
+              d="M180.3 262.3l.3-9.3-2.5-2.2h-37.7l-2.3 2.2.2 9.3-31.5-14.9 11 9 22.3 15.5h38.3l22.4-15.5 11-9z" />
+            <path fill="#161616" stroke="#161616" stroke-linecap="round" stroke-linejoin="round"
+              d="M177.9 230.9l-4.8-3.3h-27.7l-4.8 3.3-2.5 22.1 2.3-2.2h37.7l2.5 2.2z" />
+            <path
+              d="M278.3 114.2l8.5-40.8-12.7-37.9-96.2 71.4 37 31.3 52.3 15.3 11.6-13.5-5-3.6 8-7.3-6.2-4.8 8-6.1zM31.8 73.4l8.5 40.8-5.4 4 8 6.1-6.1 4.8 8 7.3-5 3.6 11.5 13.5 52.3-15.3 37-31.3-96.2-71.4z"
+              fill="#763d16" stroke="#763d16" stroke-linecap="round" stroke-linejoin="round" />
+            <path class="st6"
+              d="M267.2 153.5l-52.3-15.3 15.9 23.9-23.7 46 31.2-.4h46.5zm-163.6-15.3l-52.3 15.3-17.4 54.2h46.4l31.1.4-23.6-46zm71 26.4l3.3-57.7 15.2-41.1h-67.5l15 41.1 3.5 57.7 1.2 18.2.1 44.8h27.7l.2-44.8z" />
+          </svg>
+          <p class="text-center text-white">
+            You don't have MetaMask in your browser, please download it from
+            <a href="https://metamask.io/" class="text-accent" target="_blank" rel="noreferrer noopener">MetaMask</a>
+          </p>
+        </div>
+        <!-- end body -->
+
+        <div class="modal-footer">
+          <div class="flex items-center justify-center space-x-4">
+            <a href="https://metamask.io/" target="_blank" rel="noreferrer noopener"
+              class="rounded-full bg-accent py-3 px-8 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+              Get Metamask
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buy Now Modal -->
+
+  <!-- Footer -->
+  <footer class="page-footer bg-white bg-jacarta-900">
+    <div class="container">
+      <div class="grid grid-cols-3 gap-x-10 gap-y-14 pt-24 pb-12 md:grid-cols-12">
+        <div class="col-span-1 md:col-span-4">
+          <!-- Logo -->
+          <a href="" class="mb-6 inline-block">
+            <img src="{% static  'images/about_logo.png' %}" class="max-h-7 hidden" alt="IOIT ACM"
+              style="width:100px; height: 100px;" />
+            <img src="{% static  'images/about_logo.png' %}" alt="IOIT ACM" style="width:150px; height: 150px;" />
+          </a>
+          <p class="mb-12 text-jacarta-300">
+            IOIT ACM Student Chapter was founded on 2019, with a vision to carry forward ACM’s international intentions
+            on a grass root level at AISSMS’ Institute of Information Technology. </p>
+          <!-- Socials -->
+
+        </div>
+
+        <div class="col-span-1 md:col-span-4 footerb" id="address">
+          <h3 class="mb-6 font-display text-xl text-white">Contact Us</h3>
+          <ul class="flex flex-col space-y-1 text-jacarta-300">
+            <li class="hover:text-accent hover:text-white">
+              <i>
+                <svg class="col-span-1" fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 395.71 395.71"
+                  xml:space="preserve" stroke="#ffffff" style=" display: inline !important;">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <g>
+                      <path
+                        d="M197.849,0C122.131,0,60.531,61.609,60.531,137.329c0,72.887,124.591,243.177,129.896,250.388l4.951,6.738 c0.579,0.792,1.501,1.255,2.471,1.255c0.985,0,1.901-0.463,2.486-1.255l4.948-6.738c5.308-7.211,129.896-177.501,129.896-250.388 C335.179,61.609,273.569,0,197.849,0z M197.849,88.138c27.13,0,49.191,22.062,49.191,49.191c0,27.115-22.062,49.191-49.191,49.191 c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z">
+                      </path>
+                    </g>
+                  </g>
+                </svg>
+              </i>
+              <div>
+                <p>
+                  AISSMS IOIT ACM Student Chapter.<br> RB Motilal Kennedy Road, near RTO, Sangamvadi, Pune-411001
+                </p>
+              </div>
+            </li>
+            <li class="hover:text-accent hover:text-white">
+              <i>
+                <svg fill="#fff" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                  style=" display: inline !important;">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z"
+                      fill-rule="evenodd"></path>
+                  </g>
+                </svg>
+              </i>
+              <div>aissms.ioit.acm@chatpter.acm.org</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- <div class="col-span-2 md:col-span-4" style="padding: 50px; display: inline-block;">
+          <h3 class="mb-6 font-display text-xl text-white">Contact Us</h3>
+          <div class="grid grid-cols-2 gap-x-2">
+            <svg class="col-span-1" fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 395.71 395.71"
+              xml:space="preserve" stroke="#ffffff">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <g>
+                  <path
+                    d="M197.849,0C122.131,0,60.531,61.609,60.531,137.329c0,72.887,124.591,243.177,129.896,250.388l4.951,6.738 c0.579,0.792,1.501,1.255,2.471,1.255c0.985,0,1.901-0.463,2.486-1.255l4.948-6.738c5.308-7.211,129.896-177.501,129.896-250.388 C335.179,61.609,273.569,0,197.849,0z M197.849,88.138c27.13,0,49.191,22.062,49.191,49.191c0,27.115-22.062,49.191-49.191,49.191 c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z">
+                  </path>
+                </g>
+              </g>
+            </svg>
+            <h6 class="col-span-1 head">
+              AISSMS IOIT ACM Student Chapter. RB Motilal Kennedy Road, near RTO, Sangamvadi, Pune-411001
+            </h6>
+
+          </div>
+        </div> -->
+
+        <div class="col-span-1 md:col-span-4 footerb">
+          <h3 class="mb-6 font-display text-xl text-jacarta-700 text-white">Quick Links</h3>
+          <ul class="flex flex-col space-y-1 text-jacarta-300">
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'home' %}">Home
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'aboutus' %}">About
+                Us
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'membership' %}">Membership
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'event_all' %}">Events
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'team' %}">Team
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'contactus' %}">Contact
+                Us
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex flex-col items-center justify-between space-y-2 py-8 sm:flex-row sm:space-y-0">
+        <span class="text-sm text-jacarta-400">&copy;
+          <script>
+            document.write(new Date().getFullYear())
+          </script>
+          IOIT ACM — Made by
+          <a href="#" class="hover:text-accent">IOIT ACM WEB TEAM</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS Scripts -->
+  <script src="./js/app.bundle.js"></script>
+  <script src="{% static 'js/app.bundle.js' %}"></script>
+
+</body>
+
+</html>

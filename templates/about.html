@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <title>About Us</title>
+
+  <meta charset="utf-8" />
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="description" content="" />
+
+  <!-- Css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+  <!-- Dark Mode JS -->
+  <script src="{% static 'js/darkMode.bundle.js' %}"></script>
+
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" sizes="114x114" href="{% static  'images/favicon.ico' %}" />
+  <link rel="apple-touch-icon" href="{% static  'images/favicon.ico' %}" />
+  <link rel="apple-touch-icon" sizes="72x72" href="{% static  'images/favicon.ico' %}" />
+  <link rel="apple-touch-icon" sizes="114x114" href="{% static  'images/favicon.ico' %}" />
+
+  <style>
+    section.relative.pb-32.pt-10.lg\:pt-48 {
+      padding-top: 5rem !important;
+
+    }
+  </style>
+
+</head>
+
+<body class="overflow-x-hidden font-body text-jacarta-500 bg-jacarta-900" itemscope
+  itemtype="http://schema.org/WebPage">
+  <!-- Header -->
+  <header class="js-page-header fixed top-0 z-20 w-full  transition-colors">
+    <div class="flex items-center py-2 xl:px-24">
+      <!-- Logo -->
+      <a href="{% url 'home' %}" class="shrink-0">
+        <!-- <img src="{% static  'images/about_logo.png' %}" class=" hidden" style="width:50px; height: 50px;"
+          alt="IOIT ACM" /> -->
+        <img src="{% static  'images/about_logo.png' %}" class="block" style="width:100px; height: 100px;"
+          alt="IOIT ACM" />
+      </a>
+
+      <!-- Search -->
+      <!-- Menu / Actions -->
+      <div
+        class="js-mobile-menu invisible lg:visible fixed inset-0 z-10 ml-auto items-center bg-white opacity-0 bg-jacarta-800 lg:relative lg:inset-auto lg:flex lg:bg-transparent lg:opacity-100 lg:bg-transparent">
+        <!-- Mobile Logo / Menu Close -->
+        <div class="t-0 left-0 z-10 flex w-full items-center justify-between bg-white p-6 bg-jacarta-800 lg:hidden">
+          <!-- Mobile Logo -->
+          <a href="{% url 'home' %}" class="shrink-0">
+            <img src="{% static  'images/about_logo.png' %}" class="max-h-7 hidden" style="width: 100px; height: 100px;"
+              alt="IOIT ACM" />
+            <img src="{% static  'images/about_logo.png' %}" class="hidden max-h-7 block" alt="IOIT ACM" />
+          </a>
+
+          <!-- Mobile Menu Close -->
+          <button
+            class="js-mobile-close group ml-2 flex h-10 w-10 items-center justify-center rounded-full border border-jacarta-100 bg-white transition-colors hover:border-transparent hover:bg-accent focus:border-transparent focus:bg-accent border-transparent bg-white/[.15] hover:bg-accent"
+            aria-label="close mobile menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+              class="h-4 w-4 fill-jacarta-700 transition-colors group-hover:fill-white group-focus:fill-white fill-white">
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path
+                d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Search -->
+
+        <!-- Primary Nav -->
+        <nav class="navbar w-full ">
+          <ul class="flex flex-col lg:flex-row">
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'home' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">Home
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'aboutus' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">About
+                Us
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'membership' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">Membership
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'event_all' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">Events
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'team' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">Team
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'event_all' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">Contact
+                Us
+              </a>
+            </li>
+
+
+          </ul>
+        </nav>
+
+        <!-- Mobile Connect Wallet / Socials -->
+
+        <!-- Actions -->
+
+      </div>
+
+
+      <!-- Mobile Menu Actions -->
+      <div class="ml-auto flex lg:hidden">
+        <!-- Profile -->
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="js-mobile-toggle group ml-2 flex h-10 w-10 items-center justify-center rounded-full border border-jacarta-100 bg-white transition-colors hover:border-transparent hover:bg-accent focus:border-transparent focus:bg-accent border-transparent bg-white/[.15] hover:bg-accent"
+          aria-label="open mobile menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+            class="h-4 w-4 fill-jacarta-700 transition-colors group-hover:fill-white group-focus:fill-white fill-white">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M18 18v2H6v-2h12zm3-7v2H3v-2h18zm-3-7v2H6V4h12z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <!-- Page title -->
+    <section class="relative pt-24 lg:pb-96">
+      <picture class="pointer-events-none absolute inset-0 -z-10">
+        <img src="{% static  'images/gradient_dark.jpg' %}" alt="gradient" class="h-full w-full" />
+      </picture>
+      <div class="container">
+        <!-- Page Title -->
+        <div class="mx-auto max-w-2xl py-16 text-center">
+          <h1 class="mb-8 font-display text-4xl font-medium text-jacarta-700 text-white">
+            About ACM
+          </h1>
+          <h1 class="mb-8 font-display text-4xl font-medium text-jacarta-700 text-white">
+            People. Passion. Professionalism.
+          </h1>
+          <p class="text-lg leading-normal text-jacarta-300">
+            The Association for Computing Machinery is an international learned society for computing. It was founded in
+            1947 and is the world's largest scientific and educational computing society. ACM is a non-profit
+            professional membership group, claiming nearly 100,000 student and professional members as of 2019. ACM has
+            fostered growth in the computing community through its more than 180 professional and more than 680 student
+            chapters worldwide.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro / Statistics -->
+    <section class="pb-24">
+      <div class="container">
+        <!-- Video Lightbox -->
+        <figure
+          class="relative mt-16 overflow-hidden rounded-3xl before:absolute before:inset-0 before:bg-jacarta-900/25 lg:-mt-96">
+          <img
+            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUREhIWFhQVGBcZGBcWFxYgHxUaGh4aFxkYGSEfHSggHholGxcYITEiJSkrLi4uGCAzOTMtNygtLi0BCgoKDg0OGxAQGy8mICYtLTAyLy8vLS0yNTcyLzUtLTc1NS0tLS0vNy8tNS0tLS0vLS0tLS0tLS8vLS0tLS0tLf/AABEIAIoBbQMBIgACEQEDEQH/xAAbAAEAAwADAQAAAAAAAAAAAAAABAUGAgMHAf/EAEIQAAEDAgMGAwUGBAQFBQAAAAEAAgMEEQUSIQYTMUFRYSJxgTJSkaGxBxQjQmLBFTPR8HKCwuJDc5KisiU0NWPh/8QAGgEBAAIDAQAAAAAAAAAAAAAAAAIDAQQFBv/EADURAAEDAgQCCAUEAwEBAAAAAAEAAhEDIQQSMUETUWFxgZGhsdHwBSIyweEUQlLxI6KyYhX/2gAMAwEAAhEDEQA/APcURERERERERERF8RYzaHHd5eKI+Dmff/2/VWUqRqGAqa9dtFuZ3YOamVe1AEoDBmjGjjzd3b5fNaGmqGyND2G7TwK80urHBsWdA7qw+039x3W7Vwgy/JqPFc2hj3B/+TQ+H4XoKLopqhsjQ9hu08Cu9c5dgGbhERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERFxJtqUJtqVitpMf3l4oj+Hzd73+36q2lSdVdAVGIxDKDczuwc192ix7eXiiP4fN3v/7fqs/dc6SlkkNo2Fx7Dh5ngFdwbJTO1c5rO3E/LT5rqA0qAyzC4X+bEuzgE+XoqG6XWpGxf/3/APZ/uXRNshKPYka7zBH9VgYqkf3efopnA4gas8R6qvwTGHQO6sPtN/cd1vaWobI0PYbtPArzmtw2aL+ZGQPe4j4jRd+CYy6nd1Yfab+47quvhxVGdmvmrMLjHUHcOoLeX4XoyLopqhsjQ9hu08Cu9ctdwGdERERZRERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERcSbalCbalYPafaTeEwwnwfmd7/YdvqraNF1V0Ba+JxLMOzM7sHP3udl2bTbQ7y8UR/D/M73+3+H6pg+zoLd9UnIwC+Um1x1J5D5rjsnhTSDVS2DGXLb8Dl4uPYfXyWd2s2lfUvLWkthafC33v1O/Ycl02sJPBo2A1PvdcV1QBv6jEXJ+lvvb+7kq9xXblkQ3VGxthpmcLD/ACt0J8z81k67aGqkPjnd5A2HwbYKsRbtLC0qegvzNyubXx1esfmdA5CwXMyu94/EqXS4xPGbxyvb5E2+HBQUV5aDqtZr3Nu0x1La4P8AaBI3w1LBI3gXNADvUeyfkrmpweCqj39IW35tGgJ6W/K75fVeYqwwTFpaWQSRH/E08HDof68lpVMIB81H5T4FdGj8QLhw8R8zee46j9t+nRajB8WkpZC1wOW9nsPEHqOjvqvQKWobIwPYbtPArLYpBHW04qoR4wPE3mbcWn9Q5dfUKiwHHHU7+sbvab+47/VaVSlx2lzRDhqPfvuXRpYg4R4pvMsNwej05gdYXpyKPSVLJWB7HXa7gVIXNNl2gQRIRERFlERERERERERERERccwva+vREXJERERFxzC9r69FyRERERERFEp62OQlscjXFvtBrgSPOx0WYKwSApaIiwsoiIiIiIiIiIiIiIiIiIiIuJNuPBCbaleebW7UbwmCE/hjRzh+fsO318ldQoOrOyt/pauLxdPDMzu7Bz97nZdm1W028JhhP4f5nD/idh2+vks/QU5lkZE3i8geXU+gufRQM61H2e0+aoc8/8NpI83WH0zLtFrcPROXYLy7Kj8biWh51I7tYHZPmpX2gYgIo46OPQWBdboPZb6kEnyHVYCy09ZTGsxF7L5cziA4i9gwEDS/RvzV4NgIvZ+8HN0DR9L3UKdWlhqbWvNyJ05rYr0MRjaz30x8oOUXA02+/avPbJZX20WzklKQcwex2gcBbXoRyKscF2IklYJJXiNrhcC1yR1OoAWwcTSDM5Nj761otwWIdVNIN+Ya/3oshZLLa4psOGRPljmBDQSQW8QBc2IPH0XVhuxTpYGzNmALgSGZOYuAL5uduNlAYyiW5s1pjQqw/DsUHZMt4nUad6x1kst9F9nng8U9pLcA24B6Xvc+aj4bsHI65meGAEgAAOJtpfoB0/ZY/XUIJzadal/8ALxcgZNekW672UHYLFTDOI3HwS2aex/Kfjp69l3bXUG4nNhZj/E3tf2h6H6hQNosBfSPb4szXascBbUW0PQi4Wp21AkpIajmLfB4ufmAqnObxmVGGz7duy2GtecLUo1BDqZDh1HX17lQ7P466mf70bvab/qH6vqvS6SqZIwPY4Oa7gQvF86uNncffTP5ujcfE3/UP1fVRxeD4gzM+rz/KfDviXBPDqfT5fjmNtQvWEUajqmSsD2ODmu4Ef3xUlcXSxXqQQRIWX22kLmRUoPiqJGt06NILj8cq4bDyZBPSE6wSG1+jibfME/5lFrKM1eIuGZ8badlg9uhueOU2/UR/lXCKidSYjGc75GTsLXPdcnNyuQOob8V0MreDwpvGaOnX/nbVcwud+o40WzZZ6NP+rzpCtKTaJ8ryIaVz4g7IZcwFjcAnLxI1v5LlV7RO3z4KenM7orbwh7W5b8hfiVmaiVglD8P3zJnvGeEghttblwOgF/QX5KTtO+DevfAZY6wEAZQ60hFtehFvjbgVn9OwvAy2I3m3S6+mtxbeFE4mpkJzaHbLfWzba6SHSdputFiu0AidHE2J0k8guImkXA/UeA4H4FMJ2gEsj4JYnQzMGYsJBBb1DhoeIVLVPkgqoayaNxa+FrZCBfdut4rgcBf6lfI4nVtW6ojaWwthdG17gRnc4Obcc/zn4d1XwWZJi0fVO86fjU66K3jv4sTeYyx+2NefbptEqfHtU+Uk01K+aNpsZMwaD/hBGq5Yc+L+IVWWN28DG5nZrh2jNGt5Hhz5Kr2bxxtLD92qIpGSMc62VpOe5J0t5+XBdjBI2ur3xtObdDJpxdlba3Im/JWOpBpe1ogRYyb/ADDXbptZVsrF4pucZMiRA+X5XaWkHa5Pip8+1D48rp6R8UTnBucuBtf3mjUKFjGO1LK6OJkTiwNcRGC38bQ+MG1wB0/SsziLWSUwIbNJVB15HO3hDNSLdNbi3PyWl2in3FbS1L2kxNY5pLQTYkOFv+4fNT4DGuAy3IeIvsLRJm/PtEKo4io9pJfABYZtubzAAtFxeNDKnU8sZxA3iLZTCCXF2gGl22txHC97aLidrS4PkgpnywsJDpAQOGpLQdSLa/0Ud0RkxGQgENfTkBxB0zAW9dVDwPFvulO6lmieJml4a0NJD83CxGlrn4dVXwg4TGYw20nS8+nu1xqlrozZWy68DURHRe56Y77yt2qiZBFUNaXRyOtpoWcb3HMix0XCm2nJnZBNTvi3n8tziPF0uOR9TqQs3PhksNDSse05zUZi2xOUG9gemgHxV7tWwmroCGkgSuuQDprHx6JwKM5Rec955aaIMRXy5jaOHIj+Vj0qZtpVPjpH5Gk5hlLgbZAeLj9PVU2BYjHS0rZH05Y4hrWkEEzkjNcdvPhdX+14Jo5gASbDQeYWexWkk+7UE7GOfuAxzmAa2s03t2y29VGhldSDXbu5xtbovpfTVSxOZtYvbs3kDHzQTzsL2100srem2lIlZDUQOgMv8sucHBx6G3A6j4hdc21VppKdlO6SRjstmm9xzcdNANPiq7FKz7/NTsga/LG/PI8ggMGmmvPQ+tlL2bjIxCuJaQCWWJB11PBZ4TA0uc2CGzEn+UDpuOlY41RzgxrpBdGaBplJPRY7x0bLXIiLQXTREREREREREREREREWK+0Gsna1rGjLE72nj8x909B/fJef3XttVTMkYWPaHNcLEHmvLNp9nn0z7i7onHwu6fpd3+q7Hw+uzLw9D5/leZ+M4Opn44Mt8vx089VTXW2+zD2p/KP/AFrC3Ww+zWotNIz323HmD/RxWzjRNB0e7rQ+EnLjKZPM+RCr8Cwl9RO4B5Za5c8XuATaw7m9vitGcKw6lla173GYEEauuCToTlAA9VEw2qFJWTB4ORxLSRyF8zT5WPzVjiVXQOkFQbySaaNz204Fw4afstWrUqOqR82Uj9vVuuhhqFFlKfkzhxnPtB2HOI7dVYbXRh0cTXcDPGD5HMD8lG2/me2l8BIDngOt0sTbyJAULavGYZoQyJ5Lg8H2XC1g7XUdSFIpNoYJ4t1VNsSAHXBIdbmLag8+y16dN7WseWkwTb37st+tWpVHVaQeBmaIO2/vtWBpqh8YcGPLQ8EOA4OB0IIXpWA3GHNINiI3kEcjdyqp5sPijeIBeR7SAbPJGYW4u4DyXbhuNwMpBE6Qh+R4tldxOa2trc1fiXurMENOo2vpHgtTAU24WoQ+o0/KdDYXHONdTYKN9nEzy6cOcSPAdSTqc1zqo+IVDxizRnNg+MAXNgCBcW6G5+K+bG18VO6QyutmDQNCeF78B3XRWVkbq8VAP4eZjr2PBobfTjyKmWziKjosW8uoKlrx+jotzXDwTe8S7XdW/wBpLbxxf4nfsurFP/iGX5Bn/lb6Lr2xxWGoZGInFxaST4XDlbmF27ZfhUEMPNxYD6C5+dlVTBDaTSIOZbNctc/E1GmRkA71gbr7dcLqZhOGyVEgjjFzzPJo6nsusSGiTovMtYXENaJJV5sNWTtmEcYzMd7bTwaPevyI/wDzovT1V4LhMdNHu2Djq5x4uPU9ugVovPYqs2rUzNEfde3+H4Z+Hohj3SfLoHvVEWUxfFZpKn7lSkMc1uaWUi+QaGwHkR6nlxU7C8KqI5M0lY6VljdjmAa8je50UDRytlxAJEgXnwEBXDEZnw1pIBgm0eJBMbwOjmr1FQO2tpA/d74Xva+V9r+dreqm1uMwwlgkkDc4JadbENFybgW4KJovEAtN+gqYxFMgkPFrG6skVDFtZSOa94mADONw4HXQWBFz6KTQ49BNE+aOS7IwS/R12i19Ra/AFHUajblp7isNxFJ1muB31CtUWfl2uom5bzjxC4s15sP1aaeRU+oxaFm7zSD8YgRkAkOJtaxAIHtDU9UNF4iWm/QgxFN0w8GOkb6d6sUUGpxKJkrIXutJJfILO1tx1AsPVUGHbaQyVDorgMJa2J1n3kcTbXTTUjijaFRwJDbAT797FYfiqbHBrnAEmNd/cd45rWos3hmINZ96kkqjIyOQ3BY4bnUjKNNemmmnddx2rpMzWb8XdbWzrC+oubWHrw5rJoPkgAnqB5TyWBiacAucBPMjnHPmr5FXYrjENO0GaQNvwFiSfIDVdNBtBTzPbHHJmc4FwFncBxvpoexURTeW5gDHNTNZgdkLhPKb92qt0Wc21rJYoGmF+R7pGsBFuYdpqOy44LjZNCZ5dXxBzX8NXDh6m7fipcFxph43MdPvZR/UNFQ0zsJnZaVFi9iMVqJHzNqZC7K2NwuAMocC48B0IVrT7XUb3BjZtXGwJa8AnsSLKT8M9ri0CYi4uLqFPGUnsDycszAJANjHNX6KuxXGIacAzSBt+A1JPkBqsztTjbZaaOWmkcG74BxGZv5SSDw01CxSoPqEWsTE7LNbEspg3BIExInuW3RU1HtLSyybmOUF+ttDZ1vdJFio9JVgVNRmqS4MaCYsjvwgACTe1jp06qPCcJkRAnQ9Slx2GMpBBMSCORPPo2WhRZ9+19EMt5x4hcWa/QcPFpp6qyrsTiij3skgDDax45r6jLbU6dENJ4gFpvpYrLa9JwJDgY1uLKciq8Mx2CfNun3LBdwIcCB1sReyjRbUUji0NluXhzgA197NzFxItceyfOycKpJGU26O3yTj0oBzC+lxe8ecK9RV0GLwvhNQ194gHEus7TLx0tf5KRR1bJWNkjN2u1BsRflwIuoOaWzI0UhUa7Q7T2c1JUerpmSsMb2hzXCxBUhFhTImxXke1Gzz6Z9xd0Tj4XdP0u7/AFUDA6/cVEc3JrvF/hOjvkSvY6ulZKwxvAc1wsQV5TtRs6+lfcXdE4+F3T9Lu/1XbwuKFYcOpr5/leWx/wAPdhncaj9IM9X4nu0Wp2yofE2obq14AJHX8p9R9Fm92r3YzFmzwmimOoHhPvDjYd28u3komI4e6F5Y70PJw6qFJxYTSdqNOkbK+u1tUDEM0dr0HcKt3abtSMqZVfmWtkUfdpu1IyplWMyZFH3abtSMq5xQOe4NaCXHgAmZOGu/Z/Dt7O0EeFurvIcvU6KN9oWJCSoEbTpELep1P7D0K0tfUsw+mNiDPJw7u6+Tb/3defYXh8tVLlZqXG7nHgBzc4quhD3ms76RYfcqzFg0qQwzLvcQTHgPv2TumE4bJUSCOManieTR1PZesYHhEdNHkYOOrnHi49T26DkmB4PHTR7tguTq5x4uPU9ug5K0Wli8WaxgfT7uV1Ph3w8YZuZ13nw6B9zv1akRFpLprDPqRSYnI+bwxVAGV/IHw8fUEeoKvMZxBkkEscMrHyGNxDWuBJFtbWPRWtVSxyNySMa9vRwBHzUejweCI5o4WNd1A117rYdVY6HEHMAOUGNOkWstRtF7MzQRlJJ3kTc9BvoslTVtN/CSzM2+VwLbjNvbmxtxvexv0UUwH/0pkov7dw7pmaWg/wCW2i2hwSmLt4YGZr3vlHHjfpfupM1HG9zXvY1zmatcQLt8unAK39U0EwDck3jcEezvyVJwb3AZiLBotOgcHfaANp6VmZ4GfxdnhH8rNwHtWcL+dlEpmBtRijWiw3V7DqWkn5k/FbI0ke83uRu8Ay57C9ul+mqi12HN3cxjY0SyxuaSAAXEtIFyoNxA0/8AIH+wKsdhjOa31F3e0hZPAKulbhjmPcy+WTO02zOcb5dOJNstj27KA0ujpsOkkuGslc655NLwR/2gnyWn2f2bjbTxCohYZWZrkhp/MSLngdCr6qpI5GbuRjXM90i404K5+JY2oYkguJPiLd616eEqOpNmAQwAa8wb9o06ysjildFJiVGI3tflDrlpBAuDYXGl9FzwSdjMRrGvc1pcWZQ4gZj0bfidRotHDhEDMuSFgyElpAF2k8SO5sPguU2GQueJnxtL22IcQLi3DXsqTWZlyQYyxt/KVsDD1M+ckTmzbx9OWO68+SxEX8jE/wDmD/yKkY1TtGDMIaAQ2J17c3OFz5m5+K2H8Nis8bttpDd4yjxHjd3Vc5aCJ0YidG0xi1mECwtw07Kf6oZgY0cD3AD7KBwbixzZF2lveSfusdUzNZXUsk5AYYBkceAOU6nvc8e4XOiqo5MWLoi1zd2buHBzgNTfnyF+yvMdZJlY2KkZOwA3Y4tGW1g3LfThdQsBwmbfuqpmNi8GSOJpBDB3tp1+J4KQqNNMuNvlI1HPlqoOpu4oaL/OHH5TsP5adW+0RdfduNfurOtQ3+n7qhxGmcKuWgAOSqljlv0aLvk+Y+S3tRSRyFpexriw5mki+U9R0Oi+mlYXiQsaXgWD7C4HQHjbUquliQxoEc++ZB7FbXwhquJnUjughw7QVkaeo3NfXuDb5YmODetmtsPLVUmP1kk1E2aSoYQ5wywNY0ZLXF7+1oPqvRxQxZ3SbtudwyudYXcNND1Gg+CitwClAcBTx2dx8I15/VTZiqbXB2W4y8thHZKrq4Oo9jmZrHPuR9RkaRMcjbdZuedjMTa+pIDDE3dOdwBsNbnQa5vUrs2+mZJTsyuDm79oJBBF7OuDbnYhamroIpWhskbXtHAOANvLouluD04YIxCzIHZg3KLZrWzeduagyu0OY8gy2B0e/Mq1+Ge5tRgIh0neb8+fpZUG18LW1FCWgNIly6C2l2WHkuim/wDe4j/yv9IWtqKOOQtc9jXFhu0uAOU6ajodB8F8bQRZnv3bc0gs82F3jhY9QsMxAFMMI2j/AGlZfhiaucH92b/TL+epY3Cqdn8GkOUXLZHE24lrjY+YsPgoNY54Zhz84YwBwDni7Wm+hcPIC3l2XoLKGIR7kRtEZuMgAtrqV8dQRFm6MbSwcGFosPRTGLGYmNXE94IVP6E5GtnRrR2tIPXHbKzdHQvdU/eH1UMjhG5pbGAC4WNibOPAka+S4/ZvSs+67zK3OXuBcQL2AAAv04/ErQ0eEQREmOFjSRYkDUg8r9FIpKNkTckTGsbqbNFhdV1MQCwsE3jkNJ5daup4YtqNeds25NzF5PV0Lzusa6Iz4Yy/4ssZj7NPiPoMrR6FejUtO2NjY2izWNDR5AWCzuD4bPJUGsq2ta4DLFGCDkGupPXU/wDUeGgWpUsTVzQ3lcxuYg+XfKjgqWUFx3sJsQ2SRbbXuiboiItRbyKPV0rJGGN7Q5rhYgqQiLBE2K8h2jwKSjkD2EmMm7Xji08QD0cPmtNgm00VWwQVVmycA7gHnkQeR7cD8lr6ulZKwxvaHMcLEFeTbVbNvpX3F3QuPhd0/S7v9V1qNVuKAZUs4aEe+8eS4NehUwLjUo3YdW+9uR7DIWuxHZ2RmrPG3txHmOfoqdzbGxFj0KqsH2tqKcBodnYPyvubeR4j427LSwbfU8gtPAQe2V4+dipmniGWIzDmPRQbWwtW4dkPI3Hf6qvsllbt2lww65SO27K4P22o4/5MTieuUN+fH5KOartTPkp5KA1qt7LrrocGll4Nyt952g9OZVhW19Nh7CL55iPZ5nz91v8Aeqy2K7d1Ml2x2hafd1P/AFH9gFSYThstVLu2XLjq5xv4Rzc4/wB3UxhnuE1zDeQ+5VRxlNhy4YFzjuR5D+oUxjajEKj3nO4nlGP2aPn5r1DA8Hjpo93GOOrnHi49T26DkmB4NHTR5IxcnVzjxeep7dByVotHFYrifK2zRsungcDwf8lS7zqffid+qyIiLTXRREREXTPO1gu9zWjq4gfVco3hwu0gg8CDcFZjaSge6ojlYyOfIxwMD3AGxPttB06C56D0paqVooqpkDXQuY9hlhcb5A42swi1gdPQHqtpmHDw2Dcx2SYveeW0bLTqYo0y7M2wBO94E2tHO0yIleios5Q1szZ4Kd5a4Ohc5xa0jUGzba9LKNLj8wgkcA0yfeHQR6Gw10LtddLqsUHHSNvFWnENAkg7+Alajei+W4zWva4vbrbouxYp00kVaZJyHuZSuN2AtzAOvYgk2N7j4LtwjaCZ8kIcWvbN7QbG9u5NrjU6OHJSOHdGZpkRPn6dCiMS3NlcIMx4geZ2nnotgixE2P1Yp5aq8WSGQtLMrrvGYN45tPaHzU0GY4kLPbl3AdYg6NJFwNfaLhe/SyHDuEyRv4RbxCDFNMQDt3GYPgfcLUE21PBdUFSx98j2utxykG3wWe2x8bqancSI5pbSWNswFrNPY3+Slx4NTRTskZaN9nANa4ASDndvF1r8uyhw2hgJNzMW5dv2spcVxeWtAgEA35ibW2t19l7iOUO1BB1toQdei7V57R108FNNOws3bJ3XY5pJfmc1p1voNRy6q4x3F5Y3kMljblYHBmR73uNrnNl0Y3ufNWOwzg6AefhHXzCrZi2lskRYHvn0PT0aLVIsq/Gah76aOLI0zxZnEgnIbXJGov5Krx/Epn0dQxzmh8EjGPLQQHgkWtrob2v280ZhnOIBIvHnHmlTFsY1zoNgfAT5XW+RZCuxuZkopzIxrmRhz5N29we48Gta0+EW5lH4/UOFIGMaySo3rXB7XeEssLjW9uJt5KIwzyAefoT5Anz1Uji6YJF7eoHmQO+NCtei6KRrwxokIL7DMWiwJ52HRd6oWyDKIiIiIiIiIiIiIiIiIiIiIiIiIiIiKNV0rJWGN7Q5jhYgqSiLBE2K8d2p2bfSvuLuhcfC7p+l3f6qhXu9XSslYY3tDmOFiCvJtqdm30r7i7oXHwu6fpd3+q7uDxnE+R/1ef5XmPiPw7g/5Kf0+X49lUKIpuEYXJUSCOMXJ4nk0cyey3yQ0SdFymtLiGtEkphGFyVMgjjFyeJ5NHMnsvXsCwaOmjEcYuTq5x4uPU9ug5JgWDR00Yjj4nVzjxcep7dByVquBi8WaxgfT59a9XgMAMOMzruPh0D1RERaS6SIiIiIiIip8TwNkr2yh745WjKHxkAlvum4NxquqPZuIRSxFz3Gaxke5wL3EajW1tPJXqKwVagAAOn9+9lUaFMkktF/SPK06qhk2dB3Tt/KHxBzRICMxa43ynS2nAaL4zZmIQvgzPLXvz3LhmY7Sxabcrc78Sr9Fnj1OfvVY/T0/wCPvRUNPs8wSGR8kkrnMdG7eEEOa7loBbToueHYEInMO+le2MEMY4izQfIDNYcL3srtFg1XkQT798lkUWC4Hv3frVE7ZyI08lLndkkcXE3bcEkOsNLWu3ou+bCGunZUB72uY0NIaRZ4BzWdp16K2ROK/nz8bHwTg0+XLwkjukqvxfDI6iPdyA2uC1zTZzXDg5p5FRKDAGMlE7pJJpAMrXSuByjnawGvdXaLAqPDcoNlk0WF2Yi/pp3bclRP2cjNPJTZ3ZJXFxPhuCSHWGlrXb0Xyo2dY98jxLIzehoka0ts8NGUXu2406FXyLPGqaz7t6DuCicPTP7fYmPM95WSqsAcZ6VrXPEcMbm71paHNP5eVjppwsp52bi3D4HOe7eHM95IzOdcG/C3IaWV8ikcRUMX09Z97KIw1MTaZ9APIKhkwC5a8TytkDcjpGluaRt72d4bXHIhd38EZmp3Zn3ps2W7r3zCxLiRc/JXCKPFfzU+Czl7kHzAPYEREVatRERERERERERERERERERERERERERERERERRqulZKx0b2hzHCxBUlE0QiRBXlWJbETNnEcQzRvPheeDBzDuhHz5dF6BgWDR00YjjFydXOPFx6nt0HJWqLZrYqpVaGuOnj1rTw+Ao0Hl7Bc+HQPc9MIiItZbiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi//2Q=="
+            class="w-full" alt="video" />
+          <a href="https://www.youtube.com/watch?v=CuQR-h7Gj-o" data-bs-toggle="modal" data-bs-target=".video-lightbox"
+            class="js-video-modal-trigger absolute top-1/2 left-1/2 flex h-24 w-24 -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full border-2 border-white transition-transform will-change-transform hover:scale-90">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+              class="h-8 w-8 fill-white">
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path
+                d="M19.376 12.416L8.777 19.482A.5.5 0 0 1 8 19.066V4.934a.5.5 0 0 1 .777-.416l10.599 7.066a.5.5 0 0 1 0 .832z" />
+            </svg>
+          </a>
+        </figure>
+
+        <!-- Statistics -->
+        <div class="pt-24">
+          <h2 class="mb-16 text-center font-display text-3xl text-jacarta-700 text-white">
+            Located at the Heart of Pune City AISSMS IOIT & was established in August 1999
+          </h2>
+
+          <div class="grid grid-cols-2 md:grid-cols-4">
+            <div class="mb-10 text-center">
+              <span class="block font-display text-5xl text-jacarta-700 text-white" id="num">500+</span>
+              <span class="block text-jacarta-300">Happy Members</span>
+            </div>
+            <div class="mb-10 text-center">
+              <span class="block font-display text-5xl text-jacarta-700 text-white" id="num">
+                100+
+              </span>
+              <span class="block text-xl text-jacarta-300">
+                <b> Speakers</b>
+              </span>
+            </div>
+            <div class="mb-10 text-center">
+              <span class="block font-display text-5xl text-jacarta-700 text-white" id="num">
+                15+
+              </span>
+              <span class="block text-xl text-jacarta-300">
+                <b> Learning Programs
+                </b>
+              </span>
+            </div>
+            <div class="mb-10 text-center">
+              <span class="block font-display text-5xl text-jacarta-700 text-white" id="num">20+</span>
+              <span class="block text-xl text-jacarta-300"> <b>
+                  Successful Events
+                </b>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end intro / statistics -->
+
+    <!-- Story -->
+    <section class="relative py-24 bg-jacarta-800">
+      <!-- <picture class="pointer-events-none absolute inset-0 -z-10 hidden">
+        <img
+          src="https://www.macquarie.com/au/en/perspectives/technology/_jcr_content/root/general_hero_copy/mobile-image.coreimg.jpeg/1671162255476/hero-technology-hub.jpeg"
+          alt="gradient" class="h-full w-full" />
+      </picture> -->
+
+      <div class="container">
+        <div class="lg:flex lg:justify-between">
+          <!-- Image -->
+          <div class="lg:w-[55%]">
+            <!-- <div class="relative"> -->
+            <img src="{% static  'images/about_logo.png' %}" class=" block" />
+
+            <!-- </div> -->
+          </div>
+
+          <!-- Info -->
+          <div class="py-20 lg:w-[45%] lg:pl-16">
+            <h2 class="mb-6 font-display text-2xl text-jacarta-700 text-white">
+              Association for Computing Machinery
+              Advancing Computing as a Science & Profession
+            </h2>
+
+            <p class="mb-10 text-jacarta-300">
+              ACM brings together computing educators, researchers, and professionals to inspire dialogue, share
+              resources, and address the field's challenges. As the world’s largest computing society, ACM strengthens
+              the profession's collective voice through strong leadership, promotion of the highest standards, and
+              recognition of technical excellence.
+            </p>
+            <div class="flex space-x-4 sm:space-x-10">
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end story -->
+
+
+
+
+
+    </div>
+    </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer bg-white bg-jacarta-900">
+      <div class="container">
+        <div class="grid grid-cols-3 gap-x-10 gap-y-14 pt-24 pb-12 md:grid-cols-12">
+          <div class="col-span-1 md:col-span-4">
+            <!-- Logo -->
+            <a href="" class="mb-6 inline-block">
+              <!-- <img src="{% static  'images/about_logo.png' %}" class="max-h-7 hidden" alt="IOIT ACM"
+                style="width:100px; height: 100px;" /> -->
+              <img src="{% static  'images/about_logo.png' %}" alt="IOIT ACM" style="width:150px; height: 150px;" />
+            </a>
+            <p class="mb-12 text-jacarta-300">
+              IOIT ACM Student Chapter was founded on 2019, with a vision to carry forward ACM’s international
+              intentions
+              on a grass root level at AISSMS’ Institute of Information Technology. </p>
+            <!-- Socials -->
+
+          </div>
+
+          <div class="col-span-1 md:col-span-4 footerb" id="address">
+            <h3 class="mb-6 font-display text-xl text-white">Contact Us</h3>
+            <ul class="flex flex-col space-y-1 text-jacarta-300">
+              <li class="hover:text-accent hover:text-white">
+                <i>
+                  <svg class="col-span-1" fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 395.71 395.71"
+                    xml:space="preserve" stroke="#ffffff" style=" display: inline !important;">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <g>
+                        <path
+                          d="M197.849,0C122.131,0,60.531,61.609,60.531,137.329c0,72.887,124.591,243.177,129.896,250.388l4.951,6.738 c0.579,0.792,1.501,1.255,2.471,1.255c0.985,0,1.901-0.463,2.486-1.255l4.948-6.738c5.308-7.211,129.896-177.501,129.896-250.388 C335.179,61.609,273.569,0,197.849,0z M197.849,88.138c27.13,0,49.191,22.062,49.191,49.191c0,27.115-22.062,49.191-49.191,49.191 c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z">
+                        </path>
+                      </g>
+                    </g>
+                  </svg>
+                </i>
+                <div>
+                  <p>
+                    AISSMS IOIT ACM Student Chapter.<br> RB Motilal Kennedy Road, near RTO, Sangamvadi, Pune-411001
+                  </p>
+                </div>
+              </li>
+              <li class="hover:text-accent hover:text-white">
+                <i>
+                  <svg fill="#fff" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                    style=" display: inline !important;">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path
+                        d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z"
+                        fill-rule="evenodd"></path>
+                    </g>
+                  </svg>
+                </i>
+                <div>aissms.ioit.acm@chatpter.acm.org</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- <div class="col-span-2 md:col-span-4" style="padding: 50px; display: inline-block;">
+            <h3 class="mb-6 font-display text-xl text-white">Contact Us</h3>
+            <div class="grid grid-cols-2 gap-x-2">
+              <svg class="col-span-1" fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 395.71 395.71"
+                xml:space="preserve" stroke="#ffffff">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g>
+                    <path
+                      d="M197.849,0C122.131,0,60.531,61.609,60.531,137.329c0,72.887,124.591,243.177,129.896,250.388l4.951,6.738 c0.579,0.792,1.501,1.255,2.471,1.255c0.985,0,1.901-0.463,2.486-1.255l4.948-6.738c5.308-7.211,129.896-177.501,129.896-250.388 C335.179,61.609,273.569,0,197.849,0z M197.849,88.138c27.13,0,49.191,22.062,49.191,49.191c0,27.115-22.062,49.191-49.191,49.191 c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z">
+                    </path>
+                  </g>
+                </g>
+              </svg>
+              <h6 class="col-span-1 head">
+                AISSMS IOIT ACM Student Chapter. RB Motilal Kennedy Road, near RTO, Sangamvadi, Pune-411001
+              </h6>
+  
+            </div>
+          </div> -->
+
+          <div class="col-span-1 md:col-span-4 footerb">
+            <h3 class="mb-6 font-display text-xl text-jacarta-700 text-white">Quick Links</h3>
+            <ul class="flex flex-col space-y-1 text-jacarta-300">
+              <li class="js-nav-dropdown group relative">
+                <a href="{% url 'home' %}">Home
+                </a>
+              </li>
+              <li class="js-nav-dropdown group relative">
+                <a href="{% url 'aboutus' %}">About
+                  Us
+                </a>
+              </li>
+              <li class="js-nav-dropdown group relative">
+                <a href="{% url 'membership' %}">Membership
+                </a>
+              </li>
+              <li class="js-nav-dropdown group relative">
+                <a href="{% url 'event_all' %}">Events
+                </a>
+              </li>
+              <li class="js-nav-dropdown group relative">
+                <a href="{% url 'team' %}">Team
+                </a>
+              </li>
+              <li class="js-nav-dropdown group relative">
+                <a href="{% url 'contactus' %}">Contact
+                  Us
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-between space-y-2 py-8 sm:flex-row sm:space-y-0">
+          <span class="text-sm text-jacarta-400">&copy;
+            <script>
+              document.write(new Date().getFullYear())
+            </script>
+            IOIT ACM — Made by
+            <a href="#" class="hover:text-accent">IOIT ACM WEB TEAM</a>
+          </span>
+        </div>
+      </div>
+    </footer>
+    <!-- JS Scripts -->
+    <script src="./js/app.bundle.js"></script>
+    <script src="./js/videoLightbox.bundle.js"></script>
+    <script src="{% static 'js/app.bundle.js' %}"></script>
+
+</body>
+
+</html>

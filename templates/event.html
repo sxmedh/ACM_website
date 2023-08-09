@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+  <title>Events</title>
+
+  <meta charset="utf-8" />
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="description" content="" />
+
+  <!-- Css -->
+  <!-- <link rel="stylesheet" href="./css/style.css" /> -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+  <!-- Dark Mode JS -->
+  <style>
+    .card-container {
+      width: 100%;
+      max-width: 400px;
+      margin: 2em auto;
+      background-color: var(--var-card-dark);
+      border-radius: 15px;
+      margin-bottom: 1rem;
+      padding: 2rem;
+    }
+
+    div.flex-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    div.coin-base,
+    .time-left,
+    .card-attribute {
+      display: flex;
+      align-items: center;
+      padding: 1em 0;
+    }
+
+    .card-attribute {
+      padding-bottom: 1.5em;
+      border-top: 2px solid var(--var-line-dark);
+    }
+
+    a.hero-image-container {
+      position: relative;
+      display: block;
+    }
+
+
+
+    /* Details */
+
+    img.eye {
+      position: absolute;
+      width: 100%;
+      max-width: 2em;
+      top: 44%;
+      left: 43%;
+    }
+
+    @media (min-width:400px) {
+      img.eye {
+        max-width: 3em;
+      }
+    }
+
+    .hero-image-container::after {
+      content: '';
+      background-image: url("https://i.postimg.cc/9MtT4GZY/view.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 5rem;
+      background-color: hsla(178, 100%, 50%, 0.3);
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.3s ease-out;
+    }
+
+    .hero-image-container:hover::after {
+      opacity: 1;
+    }
+
+
+    a {
+      color: inherit;
+    }
+
+    /* 
+
+Eye view
+
+https://i.postimg.cc/9MtT4GZY/view.png' border='0' alt='view */
+
+    /*
+=========================
+Font Styling
+=========================
+*/
+
+    h1 {
+      font: var(--var-heading);
+      color: var(--var-lightest);
+      padding: 1.2em 0;
+    }
+
+    h2 {
+      font: var(--var-small-heading);
+      color: var(--var-lightest);
+      /* padding on .coin-base */
+    }
+
+    p {
+      font: var(--var-para);
+      color: var(--var-soft-blue);
+    }
+
+    /* span {
+      color: white;
+    } */
+
+    .small-image {
+      width: 1.2em;
+      margin-right: .5em;
+    }
+
+    .small-avatar {
+      width: 2em;
+      border-radius: 200px;
+      outline: 2px solid white;
+      margin-right: 1.4em;
+    }
+
+    div.attribution {
+      margin: 0 auto;
+      width: 100%;
+      font: var(--var-para);
+      text-align: center;
+      padding: 1.5em 0 4em 0;
+      color: var(--var-line-dark);
+    }
+
+    .attribution a {
+      color: var(--var-soft-blue);
+    }
+
+    @media (min-width:600px) {
+      body {
+        font-size: 18px;
+      }
+    }
+  </style>
+
+  <script src="{% static 'js/darkMode.bundle.js' %}"></script>
+  <style>
+    .ellipsis {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: block;
+      overflow: hidden;
+      /* width: 20em; */
+    }
+  </style>
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" sizes="114x114" href="{% static  'images/favicon.ico' %}" />
+  <link rel="apple-touch-icon" href="{% static  'images/favicon.ico' %}" />
+  <link rel="apple-touch-icon" sizes="72x72" href="{% static  'images/favicon.ico' %}" />
+  <link rel="apple-touch-icon" sizes="114x114" href="{% static  'images/favicon.ico' %}" />
+</head>
+
+<body class="overflow-x-hidden font-body text-jacarta-500 bg-jacarta-900" itemscope
+  itemtype="http://schema.org/WebPage">
+
+  <!-- Header -->
+  <header class="js-page-header fixed top-0 z-20 w-full  transition-colors">
+    <div class="flex items-center py-2 xl:px-24">
+      <!-- Logo -->
+      <a href="{% url 'home' %}" class="shrink-0">
+        <!-- <img src="{% static  'images/about_logo.png' %}" class=" hidden" style="width:50px; height: 50px;"
+          alt="IOIT ACM" /> -->
+        <img src="{% static  'images/about_logo.png' %}" class="block" style="width:100px; height: 100px;"
+          alt="IOIT ACM" />
+      </a>
+
+      <!-- Search -->
+      <!-- Menu / Actions -->
+      <div
+        class="js-mobile-menu invisible lg:visible fixed inset-0 z-10 ml-auto items-center bg-white opacity-0 bg-jacarta-800 lg:relative lg:inset-auto lg:flex lg:bg-transparent lg:opacity-100 lg:bg-transparent">
+        <!-- Mobile Logo / Menu Close -->
+        <div class="t-0 left-0 z-10 flex w-full items-center justify-between bg-white p-6 bg-jacarta-800 lg:hidden">
+          <!-- Mobile Logo -->
+          <a href="{% url 'home' %}" class="shrink-0">
+            <img src="{% static  'images/about_logo.png' %}" class="max-h-7 hidden" style="width: 100px; height: 100px;"
+              alt="IOIT ACM" />
+            <img src="{% static  'images/about_logo.png' %}" class="hidden max-h-7 block" alt="IOIT ACM" />
+          </a>
+
+          <!-- Mobile Menu Close -->
+          <button
+            class="js-mobile-close group ml-2 flex h-10 w-10 items-center justify-center rounded-full border border-jacarta-100 bg-white transition-colors hover:border-transparent hover:bg-accent focus:border-transparent focus:bg-accent border-transparent bg-white/[.15] hover:bg-accent"
+            aria-label="close mobile menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+              class="h-4 w-4 fill-jacarta-700 transition-colors group-hover:fill-white group-focus:fill-white fill-white">
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path
+                d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Search -->
+
+        <!-- Primary Nav -->
+        <nav class="navbar w-full ">
+          <ul class="flex flex-col lg:flex-row">
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'home' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">Home
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'aboutus' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">About
+                Us
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'membership' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">Membership
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'event_all' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">Events
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'team' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">Team
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'event_all' %}"
+                class="dropdown-toggle flex items-center justify-between py-3.5 font-display text-base text-jacarta-700 hover:text-accent focus:text-accent text-white hover:text-accent focus:text-accent lg:px-5">Contact
+                Us
+              </a>
+            </li>
+
+
+          </ul>
+        </nav>
+
+        <!-- Mobile Connect Wallet / Socials -->
+
+        <!-- Actions -->
+
+      </div>
+
+
+      <!-- Mobile Menu Actions -->
+      <div class="ml-auto flex lg:hidden">
+        <!-- Profile -->
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="js-mobile-toggle group ml-2 flex h-10 w-10 items-center justify-center rounded-full border border-jacarta-100 bg-white transition-colors hover:border-transparent hover:bg-accent focus:border-transparent focus:bg-accent border-transparent bg-white/[.15] hover:bg-accent"
+          aria-label="open mobile menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+            class="h-4 w-4 fill-jacarta-700 transition-colors group-hover:fill-white group-focus:fill-white fill-white">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M18 18v2H6v-2h12zm3-7v2H3v-2h18zm-3-7v2H6V4h12z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-[5.5rem] lg:pt-24">
+    <!-- Blog -->
+    <section class="relative py-2 md:py-2">
+      <h1 style="color:white;font-size:xx-large;font-weight:bold;text-align: center;padding: 2rem;">Upcoming Events</h1>
+      <picture class="pointer-events-none absolute inset-0 -z-10 hidden">
+        <img src="{% static  'images/gradient_dark.jpg' %}" alt="gradient" class="h-full w-full" />
+      </picture>
+      <div class="container">
+        <!-- Featured Post -->
+        <article class="mb-[1.875rem] md:mb-16 px-2">
+          <div class="flex flex-col overflow-hidden rounded-2.5xl transition-shadow hover:shadow-lg md:flex-row">
+            <figure class="group overflow-hidden md:w-1/2">
+              <a href="#">
+                <!-- <img src="{{MEDIA_URL}}/{{mainevent.event_cover_photo}}" alt="post 1"
+                  class="h-full w-full object-cover transition-transform duration-[1600ms] will-change-transform group-hover:scale-105"
+                  style="height: 500px" /> -->
+                <img src="{{MEDIA_URL}}/{{mainevent.event_cover_photo}}" alt="post 1"
+                  class="h-full w-full object-cover transition-transform duration-[1600ms] will-change-transform group-hover:scale-105" />
+              </a>
+            </figure>
+
+            <div
+              class="rounded-b-[1.25rem] border border-jacarta-100 bg-white border-jacarta-600 bg-jacarta-700 md:w-1/2 md:rounded-none md:rounded-r-[1.25rem]"
+              style="padding: 50px;">
+
+
+              <p class="mb-8 text-jacarta-200 sm:text-3xl">
+                <span class="">Event : </span>
+                <span
+                  class="mb-4 font-display text-l text-jacarta-700 text-white sm:text-2xl">{{mainevent.eventname}}</span>
+              </p>
+              <p class="mb-8 text-jacarta-200 sm:text-3xl">
+                <span>Description : </span>
+                <span
+                  class="mb-4 font-display text-xl text-jacarta-700 text-white sm:text-3xl ellipsis">{{mainevent.description}}</span>
+              </p>
+              <p class="mb-8 text-jacarta-200 sm:text-3xl">
+                <span>Location:</span>
+                <span
+                  class="mb-4 font-display text-xl text-jacarta-700 text-white sm:text-3xl">{{mainevent.eventlocation}}</span>
+              </p>
+              <p class="mb-8 text-jacarta-200 sm:text-3xl">
+                <span>Time : </span>
+                <span class="mb-4 font-display text-xl text-jacarta-700 text-white sm:text-3xl">
+                  {{mainevent.startdate|date:"D d M Y" }}
+                </span>
+                <br>
+              </p>
+
+
+              <a href="{% url 'eventsingleuser' mainevent.eventname %}" data-toggle="modal"
+                data-target="#propertiesModal"
+                class="inline-block w-full rounded-full bg-accent py-3 px-8 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+                <h3>Apply</h3>
+              </a>
+            </div>
+          </div>
+        </article>
+        <!--this is where the single themes start from-->
+        <h1 style="color:white;font-size:xx-large;font-weight:bold;text-align: center;padding: 2rem;">Past Events</h1>
+        <div class="grid grid-cols-1 gap-[1.875rem] sm:grid-cols-2 md:grid-cols-3">
+          <!-- Posts -->
+          {% for event in events %}
+
+          <article>
+            <div class="overflow-hidden rounded-2.5xl transition-shadow hover:shadow-lg">
+              <figure class="group overflow-hidden">
+                <a href="{% url 'eventsingleuser' event.eventname %}">
+                  <img src="{{MEDIA_URL}}/{{event.event_cover_photo}}" alt="post 2"
+                    class="h-full w-full object-cover transition-transform duration-[1600ms] will-change-transform group-hover:scale-105" />
+
+                </a>
+              </figure>
+
+
+              <div
+                class="rounded-b-[1.25rem] border border-t-0 border-jacarta-100 bg-white p-[10%] border-jacarta-600 bg-jacarta-700">
+                <h2 class="mb-4 font-display text-xl text-jacarta-700 hover:text-accent text-white hover:text-accent">
+                  <a href="{% url 'eventsingleuser' event.eventname %}" class="event_name_link">
+                    <h3>{{event.eventname}}
+                    </h3>
+                  </a>
+                </h2>
+                <p class=" font-display text-l text-jacarta-500 text-white ellipsis">
+                  {{event.description}}</p>
+                <div class="flex-row">
+                  <div class="coin-base">
+                    <h2 class="text-white"><span class=" font-display text-jacarta-500 text-white ">Event Location:
+                      </span>
+                      <br>{{event.eventlocation}}
+                    </h2>
+                  </div>
+                  <div class="time-left">
+                    <p class="text-white"> <span class=" font-display text-white "> Event Date:
+                      </span><br>{{event.startdate|date:"d M" }}</p>
+                  </div>
+                </div>
+                <a href="{% url 'eventsingleuser' event.eventname %}" data-toggle="modal" data-target="#propertiesModal"
+                  class="inline-block w-full rounded-full bg-accent py-3 px-8 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
+                  <h3>Apply</h3>
+                </a>
+                <!-- <p class="mb-8 text-jacarta-200">
+                <div class="col-sm-11">
+                  <h5>{{event.eventlocation}}</h5>
+                </div>
+                <div>
+                  <h3 class="text-center">{{ event.startdate|date:"d" }}</h3>
+                  <h4 class="text-center">{{ event.startdate|date:"M" }}</h4>
+                </div>
+                </p> -->
+              </div>
+            </div>
+          </article>
+          {% endfor %}
+
+          <!-- <article>
+              <div class="overflow-hidden rounded-2.5xl transition-shadow hover:shadow-lg">
+                <figure class="group overflow-hidden">
+                  <a href="single-post.html">
+                    <img
+                      src="img/blog/post_3.jpg"
+                      alt="post 3"
+                      class="h-full w-full object-cover transition-transform duration-[1600ms] will-change-transform group-hover:scale-105"
+                    />
+                  </a>
+                </figure>
+
+                
+                <div
+                  class="rounded-b-[1.25rem] border border-t-0 border-jacarta-100 bg-white p-[10%] border-jacarta-600 bg-jacarta-700"
+                >
+          
+
+                  <h2
+                    class="mb-4 font-display text-xl text-jacarta-700 hover:text-accent text-white hover:text-accent"
+                  >
+                    Event 3
+                  </h2>
+                  <p class="mb-8 text-jacarta-200">
+                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus animi dicta ab velit incidunt asperiores totam ullam ducimus eum molestiae!
+                  </p>
+
+                 
+                </div>
+              </div>
+            </article> -->
+          <!-- <article>
+              <div class="overflow-hidden rounded-2.5xl transition-shadow hover:shadow-lg">
+                <figure class="group overflow-hidden">
+                  <a href="single-post.html">
+                    <img
+                      src="img/blog/post_4.jpg"
+                      alt="post 4"
+                      class="h-full w-full object-cover transition-transform duration-[1600ms] will-change-transform group-hover:scale-105"
+                    />
+                  </a>
+                </figure>
+
+                
+                <div
+                  class="rounded-b-[1.25rem] border border-t-0 border-jacarta-100 bg-white p-[10%] border-jacarta-600 bg-jacarta-700"
+                >
+                  
+
+                  <h2
+                    class="mb-4 font-display text-xl text-jacarta-700 hover:text-accent text-white hover:text-accent"
+                  >
+                   Event 3
+                  </h2>
+                  <p class="mb-8 text-jacarta-200">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati incidunt dolores reprehenderit excepturi hic minus aperiam vitae ipsam, at harum!
+                  </p>
+
+                 
+                </div>
+              </div>
+            </article>
+            <article>
+              <div class="overflow-hidden rounded-2.5xl transition-shadow hover:shadow-lg">
+                <figure class="group overflow-hidden">
+                  <a href="single-post.html">
+                    <img
+                      src="img/blog/post_5.jpg"
+                      alt="post 5"
+                      class="h-full w-full object-cover transition-transform duration-[1600ms] will-change-transform group-hover:scale-105"
+                    />
+                  </a>
+                </figure>
+
+                
+                <div
+                  class="rounded-b-[1.25rem] border border-t-0 border-jacarta-100 bg-white p-[10%] border-jacarta-600 bg-jacarta-700"
+                >
+                  
+
+                  <h2
+                    class="mb-4 font-display text-xl text-jacarta-700 hover:text-accent text-white hover:text-accent"
+                  >
+                   Event 4
+                  </h2>
+                  <p class="mb-8 text-jacarta-200">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae voluptatum dolorum libero iste tempora tenetur esse accusantium tempore excepturi voluptate.
+                  </p>
+
+                 
+                </div>
+              </div>
+            </article>
+            <article>
+              <div class="overflow-hidden rounded-2.5xl transition-shadow hover:shadow-lg">
+                <figure class="group overflow-hidden">
+                  <a href="single-post.html">
+                    <img
+                      src="img/blog/post_6.jpg"
+                      alt="post 6"
+                      class="h-full w-full object-cover transition-transform duration-[1600ms] will-change-transform group-hover:scale-105"
+                    />
+                  </a>
+                </figure>
+
+                
+                <div
+                  class="rounded-b-[1.25rem] border border-t-0 border-jacarta-100 bg-white p-[10%] border-jacarta-600 bg-jacarta-700"
+                >
+                 
+
+                  <h2
+                    class="mb-4 font-display text-xl text-jacarta-700 hover:text-accent text-white hover:text-accent"
+                  >
+                    Event 5
+                  </h2>
+                  <p class="mb-8 text-jacarta-200">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ea alias praesentium architecto hic distinctio minus sunt fuga ex placeat?
+                  </p>
+
+                  
+              </div>
+            </article>
+            <article>
+              <div class="overflow-hidden rounded-2.5xl transition-shadow hover:shadow-lg">
+                <figure class="group overflow-hidden">
+                  <a href="single-post.html">
+                    <img
+                      src="img/blog/post_7.jpg"
+                      alt="post 7"
+                      class="h-full w-full object-cover transition-transform duration-[1600ms] will-change-transform group-hover:scale-105"
+                    />
+                  </a>
+                </figure>
+
+                
+                <div
+                  class="rounded-b-[1.25rem] border border-t-0 border-jacarta-100 bg-white p-[10%] border-jacarta-600 bg-jacarta-700"
+                >
+                  
+
+                  <h2
+                    class="mb-4 font-display text-xl text-jacarta-700 hover:text-accent text-white hover:text-accent"
+                  >
+                    Event 6
+                  </h2>
+                  <p class="mb-8 text-jacarta-200">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quidem eos magni ut neque fuga, culpa amet corporis doloremque dolores.
+                  </p>
+
+                  
+                </div>
+              </div>
+            </article> -->
+        </div>
+
+        <!-- Load More -->
+        <!--
+          <div class="mt-10 text-center">
+            <a
+              href="blog.html"
+              class="inline-block rounded-full bg-accent py-3 px-8 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark"
+              >Load More</a
+            >
+          </div>
+        -->
+      </div>
+    </section>
+    <!-- end blog -->
+  </main>
+
+
+
+
+  <!-- Footer -->
+  <footer class="page-footer bg-jacarta-900">
+    <div class="container">
+      <div class="grid grid-cols-3 gap-x-10 gap-y-14 pt-24 pb-12 md:grid-cols-12">
+        <div class="col-span-1 md:col-span-4">
+          <!-- Logo -->
+          <a href="" class="mb-6 inline-block">
+            <!-- <img src="{% static  'images/about_logo.png' %}" class="max-h-7 hidden" alt="IOIT ACM"
+              style="width:100px; height: 100px;" /> -->
+            <img src="{% static  'images/about_logo.png' %}" alt="IOIT ACM" style="width:150px; height: 150px;" />
+          </a>
+          <p class="mb-12 text-jacarta-300">
+            IOIT ACM Student Chapter was founded on 2019, with a vision to carry forward ACM’s international intentions
+            on a grass root level at AISSMS’ Institute of Information Technology. </p>
+          <!-- Socials -->
+
+        </div>
+
+        <div class="col-span-1 md:col-span-4 footerb" id="address">
+          <h3 class="mb-6 font-display text-xl text-white">Contact Us</h3>
+          <ul class="flex flex-col space-y-1 text-jacarta-300">
+            <li class="hover:text-accent hover:text-white">
+              <i>
+                <svg class="col-span-1" fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 395.71 395.71"
+                  xml:space="preserve" stroke="#ffffff" style=" display: inline !important;">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <g>
+                      <path
+                        d="M197.849,0C122.131,0,60.531,61.609,60.531,137.329c0,72.887,124.591,243.177,129.896,250.388l4.951,6.738 c0.579,0.792,1.501,1.255,2.471,1.255c0.985,0,1.901-0.463,2.486-1.255l4.948-6.738c5.308-7.211,129.896-177.501,129.896-250.388 C335.179,61.609,273.569,0,197.849,0z M197.849,88.138c27.13,0,49.191,22.062,49.191,49.191c0,27.115-22.062,49.191-49.191,49.191 c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z">
+                      </path>
+                    </g>
+                  </g>
+                </svg>
+              </i>
+              <div>
+                <p>
+                  AISSMS IOIT ACM Student Chapter.<br> RB Motilal Kennedy Road, near RTO, Sangamvadi, Pune-411001
+                </p>
+              </div>
+            </li>
+            <li class="hover:text-accent hover:text-white">
+              <i>
+                <svg fill="#fff" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                  style=" display: inline !important;">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z"
+                      fill-rule="evenodd"></path>
+                  </g>
+                </svg>
+              </i>
+              <div>aissms.ioit.acm@chatpter.acm.org</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- <div class="col-span-2 md:col-span-4" style="padding: 50px; display: inline-block;">
+          <h3 class="mb-6 font-display text-xl text-white">Contact Us</h3>
+          <div class="grid grid-cols-2 gap-x-2">
+            <svg class="col-span-1" fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 395.71 395.71"
+              xml:space="preserve" stroke="#ffffff">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <g>
+                  <path
+                    d="M197.849,0C122.131,0,60.531,61.609,60.531,137.329c0,72.887,124.591,243.177,129.896,250.388l4.951,6.738 c0.579,0.792,1.501,1.255,2.471,1.255c0.985,0,1.901-0.463,2.486-1.255l4.948-6.738c5.308-7.211,129.896-177.501,129.896-250.388 C335.179,61.609,273.569,0,197.849,0z M197.849,88.138c27.13,0,49.191,22.062,49.191,49.191c0,27.115-22.062,49.191-49.191,49.191 c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z">
+                  </path>
+                </g>
+              </g>
+            </svg>
+            <h6 class="col-span-1 head">
+              AISSMS IOIT ACM Student Chapter. RB Motilal Kennedy Road, near RTO, Sangamvadi, Pune-411001
+            </h6>
+
+          </div>
+        </div> -->
+
+        <div class="col-span-1 md:col-span-4 footerb">
+          <h3 class="mb-6 font-display text-xl text-jacarta-700 text-white">Quick Links</h3>
+          <ul class="flex flex-col space-y-1 text-jacarta-300">
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'home' %}">Home
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'aboutus' %}">About
+                Us
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'membership' %}">Membership
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'event_all' %}">Events
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'team' %}">Team
+              </a>
+            </li>
+            <li class="js-nav-dropdown group relative">
+              <a href="{% url 'contactus' %}">Contact
+                Us
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex flex-col items-center justify-between space-y-2 py-8 sm:flex-row sm:space-y-0">
+        <span class="text-sm text-jacarta-400">&copy;
+          <script>
+            document.write(new Date().getFullYear())
+          </script>
+          IOIT ACM — Made by
+          <a href="#" class="hover:text-accent">IOIT ACM WEB TEAM</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS Scripts -->
+  <script src="./js/app.bundle.js"></script>
+  <script src="{% static 'js/app.bundle.js' %}"></script>
+
+</body>
+
+</html>
